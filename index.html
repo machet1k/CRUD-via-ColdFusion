@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Test application</title>
+	<link href="style.css" rel="stylesheet" />
+	<script src="index.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+   
+    <header>Header</header>
+    
+    <section id='content'>
+        <table class="tableUsers" id="tableContent"></table>
+        <table class="tableUsers">
+            <tr>
+                <td><input type="text" name="firstName" id="firstName"></td>
+                <td><input type="text" name="middleName" id="middleName"></td>
+                <td><input type="text" name="lastName" id="lastName"></td>
+                <td><input type="text" name="phoneNumber" id="phoneNumber"></td>
+                <td><input type="text" value="Not yet registered" disabled></td>
+<!--
+                <td><input type="text" name="email" id="email"></td>
+                <td><input type="text" name="password" id="password"></td>
+-->
+                <td colspan="2">
+                    <div class="btns" id="add_btn">Add User</div>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <footer>Footer</footer>
+
+</body>
+</html>

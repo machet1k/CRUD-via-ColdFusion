@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Editing...</title>
+	<link href="style.css" rel="stylesheet" />
+	<script src="edit.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <header>Header</header>
+    
+    <div id='content'>
+        <table id="tableEdit">
+            <tr>
+                <th>Email: </th>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <th>Password: </th>
+                <td><input type="text" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <th>First name: </th>
+                <td><input type="text" name="firstName" id="firstName"></td>
+            </tr>
+            <tr>
+                <th>Middle name: </th>
+                <td><input type="text" name="middleName" id="middleName"></td>
+            </tr>
+            <tr>
+                <th>Last name: </th>
+                <td><input type="text" name="lastName" id="lastName"></td>
+            </tr>
+            <tr>
+                <th>Phone number: </th>
+                <td><input type="text" name="phoneNumber" id="phoneNumber"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="edit_btns" id="save_btn">Save</div>
+                    <div class="edit_btns" onclick="history.back()">Back</div>
+                </td>
+            </tr>
+        </table>  
+    </div>
+    
+    <footer>Footer</footer>
+    
+</body>
+</html>
