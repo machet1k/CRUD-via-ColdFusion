@@ -5,29 +5,37 @@
 		<cfargument name="middleName"  type="string" required="true" />
 		<cfargument name="lastName"    type="string" required="true" />
 		<cfargument name="phoneNumber" type="string" required="true" />
-		<!---cfargument name="email"       type="string" required="true" />
-		<cfargument name="password"    type="string" required="true" /--->
 		
-		<cfquery datasource="dsnYumasoft" username="root" password="root">
-            insert into users(firstName,middleName,lastName,phoneNumber,email,password)
-            values (
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.firstName#">,
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.middleName#">,
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.lastName#">,
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.phoneNumber#">,
-                '',''
-                <!---cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.email#">,
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.password#"--->
-            )
-        </cfquery>
-	</cffunction>
-	
-	<cffunction name="print" access="remote" returnformat="JSON">	
-		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
-            select *
-            from users;
-        </cfquery>
-        <cfreturn selectAll />
+		<cfset errArray = ArrayNew(1)>
+		
+		<cfif len(trim(arguments.firstName)) eq 0>
+		    <cfset ArrayAppend(errArray, "First name is required.")>
+		</cfif>
+		<cfif len(trim(arguments.middleName)) eq 0>
+		    <cfset ArrayAppend(errArray, "Middle name is required.")>
+		</cfif>
+		<cfif len(trim(arguments.lastName)) eq 0>
+		    <cfset ArrayAppend(errArray, "Last name is required.")>
+		</cfif>
+		<cfif len(trim(arguments.phoneNumber)) eq 0>
+		    <cfset ArrayAppend(errArray, "Phone number is required.")>
+		</cfif>
+		
+		<cfif ArrayLen(errArray) eq 0>
+            <cfquery datasource="dsnYumasoft" username="root" password="root">
+                insert into users(firstName,middleName,lastName,phoneNumber,email,password)
+                values (
+                    <cfqueryparam maxLength="45" cfsqltype="cf_sql_varchar" value="#arguments.firstName#">,
+                    <cfqueryparam maxLength="45" cfsqltype="cf_sql_varchar" value="#arguments.middleName#">,
+                    <cfqueryparam maxLength="45" cfsqltype="cf_sql_varchar" value="#arguments.lastName#">,
+                    <cfqueryparam maxLength="45" cfsqltype="cf_sql_varchar" value="#arguments.phoneNumber#">,
+                    '','')
+            </cfquery>
+        <cfelse>
+            <cfloop array="#errArray#" item="i">
+                <cfoutput>#i#</cfoutput>
+            </cfloop> 
+        </cfif>
 	</cffunction>
 	
 	<cffunction name="delete" access="remote">	
@@ -69,6 +77,96 @@
             where id = <cfqueryparam cfsqltype="cf_sql_bigint" value="#arguments.edit_id#">
         </cfquery>
         
+	</cffunction>
+		
+	<cffunction name="firstName_asc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by firstName asc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="middleName_asc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by middleName asc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="lastName_asc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by lastName asc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="phoneNumber_asc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by phoneNumber asc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="regDate_asc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by regDate asc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="firstName_desc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by firstName desc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="middleName_desc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by middleName desc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="lastName_desc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by lastName desc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="phoneNumber_desc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by phoneNumber desc;
+        </cfquery>
+        <cfreturn selectAll />
+	</cffunction>
+	
+	<cffunction name="regDate_desc" access="remote" returnformat="JSON">	
+		<cfquery name="selectAll" datasource="dsnYumasoft" username="root" password="root">
+            select *
+            from users
+            order by regDate desc;
+        </cfquery>
+        <cfreturn selectAll />
 	</cffunction>
 	
 </cfcomponent>

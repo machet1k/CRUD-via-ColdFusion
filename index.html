@@ -4,33 +4,43 @@
 	<meta charset="utf-8" />
 	<title>Test application</title>
 	<link href="style.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Caveat|Philosopher" rel="stylesheet">
 	<script src="index.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
    
-    <header>Header</header>
+    <header>
+        CRUD-via-ColdFusion
+    </header>
     
     <section id='content'>
-        <table class="tableUsers" id="tableContent"></table>
-        <table class="tableUsers">
+        <table class="tableUsers" id="tableForm">
             <tr>
-                <td><input type="text" name="firstName" id="firstName"></td>
-                <td><input type="text" name="middleName" id="middleName"></td>
-                <td><input type="text" name="lastName" id="lastName"></td>
-                <td><input type="text" name="phoneNumber" id="phoneNumber"></td>
+                <th><div class="asc" onclick='printData("firstName_asc")'  >&#9660;</div>First name  <div class="desc" onclick='printData("firstName_desc")'  >&#9650;</div></th>
+                <th><div class="asc" onclick='printData("middleName_asc")' >&#9660;</div>Middle name <div class="desc" onclick='printData("middleName_desc")' >&#9650;</div></th>
+                <th><div class="asc" onclick='printData("lastName_asc")'   >&#9660;</div>Last name   <div class="desc" onclick='printData("lastName_desc")'   >&#9650;</div></th>
+                <th><div class="asc" onclick='printData("phoneNumber_asc")'>&#9660;</div>Phone number<div class="desc" onclick='printData("phoneNumber_desc")'>&#9650;</div></th>
+                <th><div class="asc" onclick='printData("regDate_asc")'    >&#9660;</div>Reg. date   <div class="desc" onclick='printData("regDate_desc")'    >&#9650;</div></th>
+                <th colspan="2">Actions</th>
+            </tr>            
+            <tr>
+                <td><input type="text" name="firstName"   id="firstName"   placeholder="Ivan"></td>
+                <td><input type="text" name="middleName"  id="middleName"  placeholder="Vanya"></td>
+                <td><input type="text" name="lastName"    id="lastName"    placeholder="Ivanov"></td>
+                <td><input type="text" name="phoneNumber" id="phoneNumber" placeholder="+x-xxx-xxxxxxx"></td>
                 <td><input type="text" value="Not yet registered" disabled></td>
-<!--
-                <td><input type="text" name="email" id="email"></td>
-                <td><input type="text" name="password" id="password"></td>
--->
                 <td colspan="2">
                     <div class="btns" id="add_btn">Add User</div>
                 </td>
             </tr>
         </table>
+        <table class="tableUsers" id="tableContent"></table>
     </section>
-    <footer>Footer</footer>
+    
+    <footer>
+        This Application has been Developed by Roman Kharitonov especially for Yumasoft
+    </footer>
 
 </body>
 </html>

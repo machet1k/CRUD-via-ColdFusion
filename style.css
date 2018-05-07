@@ -3,27 +3,48 @@
 	margin: 0;
     box-sizing: border-box;
     font-family: serif;
+    font-family: 'Philosopher', sans-serif;
+}
+
+input {
+    text-align: center;
 }
 
 header, footer {
-	height: 10vh;
-    width: 100vw;
+	height: 90px;
+    line-height: 80px;
+    width: 100%;
 	background: #98d8e9;
-	font-size: 24px;	
+	font-size: 32px;	
     margin: 0 auto;
     text-align: center;
-    vertical-align: middle;
-    display: table-cell;
     border: solid 5px #00a2e8;
+    font-weight: bold;
+    color: #324ab2;
+    position: fixed;
+    font-size: 32px;
 }
 
-#content {
+section {
+    top: 90px;
+    width: 100%;
 	background: #b5e61d;
-    height: 80vh;
-    border: solid 5px #22b14c;
+    position: fixed;
+    overflow-y: scroll;
+    display: block;
+}
+
+header {
+    top: 0;
+    font-family: 'Philosopher', sans-serif;
+}
+footer {
+    bottom: 0;
+    font-family: 'Caveat', cursive;
 }
 
 .tableUsers {
+    width: 1040px;
     margin: 15px auto;
     border-color: #00a2e8;
     border-style: solid;
@@ -32,60 +53,27 @@ header, footer {
     border-bottom-width: 4px;
     border-left-width: 2px;
     border-spacing: 0;
-    box-shadow: 3px 4px 5px #abc;
-}
-
-.tableUsers {
-    width: 1010px;
+    box-shadow: 3px 2px 4px #abc; 
+    text-align: center;
 }
 .tableUsers input[type='text'] {
-    width: 164px;
-}
-
-#tableEdit {
-    width: 350px;
-}
-
-#tableEdit th {
-    width: 150px;
-}
-#tableEdit input {
-    width: 200px;
-}
-
-input {
-    text-align: center;
-}
-
-#tableEdit input {
+    width: 173px;
     padding: 2px;
-    margin: 1px;
 }
-
-.tableUsers, #tableEdit {
-    text-align: center;
-    margin: 10px auto;
-}
-
-#tableEdit th {
-    text-align: right;
-}
-
 .tableUsers th {
+    width: 195px;
     border-top-width: 0px;
     border-right-width: 2px;
     border-bottom-width: 2px;
     border-left-width: 2px;
 }
-
 .tableUsers td {
-    width: 152px;
+    width: 195px;
     border-top-width: 1px;
     border-right-width: 2px;
     border-bottom-width: 0px;
     border-left-width: 2px;
 }
-
 .tableUsers td, .tableUsers th {
     padding: 5px;
     border-color: #00a2e8;
@@ -93,15 +81,43 @@ input {
     background: #e1f5a6;
 }
 
+
+#tableForm {
+    position: fixed;
+    top: 70px;
+    z-index: 1;
+}
+#tableContent{
+    position: absolute;
+    top: 75px;
+    z-index: 0;
+}
+
+
+
+#tableEdit {
+    width: 350px;
+    text-align: center;
+}
+#tableEdit th {
+    width: 150px;
+}
+#tableEdit input {
+    width: 200px;
+}
+#tableEdit input {
+    padding: 2px;
+    margin: 1px;
+}
+
 .btns {
-   width: 90px;
+    width: 85px;
+    margin: 2px;
 }
-
 .edit_btns {
-    width: 170px;
-    margin: 12px 0;
+    width: 140px;
+    margin: 10px 5px;
 }
-
 .btns, .edit_btns {
     background: #aed65e;
     border-radius: 3px;
@@ -110,12 +126,20 @@ input {
     cursor: pointer;
     box-shadow: 2px 2px 2px #797;
 }
-
 .btns:hover, .edit_btns:hover {
     background: #f1fad7;
 }
-
 .btns:active, .edit_btns:active  {
     background: #9acd32;
     box-shadow: 2px 2px 2px #797 inset;
+}
+
+.asc, .desc {
+    display: inline-block;
+    color: #006600;
+    background: #aed65e;
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 5px 0 5px;  
+    border-radius: 5px;
 }

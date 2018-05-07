@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<title>Test application</title>
 	<link href="./style.css" rel="stylesheet" />
-	
+	<link href="https://fonts.googleapis.com/css?family=Caveat|Philosopher" rel="stylesheet">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
